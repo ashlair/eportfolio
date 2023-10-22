@@ -13,19 +13,24 @@
       src="https://kit.fontawesome.com/c8e4d183c2.js"
       crossorigin="anonymous"
     ></script>
+    <script src="./index.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("33LRvUt1rwZS7izvI");
+      })();
+    </script>
   </head>
   <body>
-    <section id="about-me">
+    <section id="landing-page" onmousemove="moveBackground(event)">
       <nav>
-        <div class="personal__logo">Ashley Lairson</div>
+        <figure>
+          <img id="personal-logo" src="./assets/logo.svg" alt="" />
+        </figure>
         <ul class="nav__link--list">
-          <li class="nav__link">
-            <a
-              href="#languages"
-              class="nav__link--anchor link__hover-effect link__hover-effect--black"
-              >Languages</a
-            >
-          </li>
           <li class="nav__link">
             <a
               href="#projects"
@@ -34,136 +39,167 @@
             >
           </li>
           <li class="nav__link">
-            <a href="mailto:ashleylairson@gmail.com" class="nav__link--anchor nav__link--anchor-primary"
+            <a
+              onclick="toggleModal()"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
               >Contact</a
             >
           </li>
         </ul>
       </nav>
-      <div class="flex flex-1">
-        <div class="about-me__info row">
-          <div class="about-me__info--container">
-            <figure class="about-me__picture--mask">
-              <img
-                src="./assets/me.jpg"
-                class="about-me__picture"
-                alt="Picture of me!"
-              />
-            </figure>
-            <h1 class="about-me__info--title">
-              Hey! I'm <span class="text--blue">Ashley Lairson</span>.
-            </h1>
-            <p class="about-me__info--para">
-              I'm a
-              <strong class="text--blue">frontend software engineer</strong>
-              focused on creating responsive web applications that prioritize
-              user experience and performance. With a keen understanding of the
-              current web standards and practices, I aim to deliver solutions
-              that not only meet but exceed user expectations, ensuring a
-              meaningful digital impact.
-            </p>
-            <div class="about-me__links">
-              <a href="" class="about-me__link">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-              <a href="https://github.com/ashlair" class="about-me__link" target="_blank">
-                <i class="fab fa-github"></i>
-              </a>
-              <a href="mailto:ashleylairson@gmail.com" class="about-me__link">
-                <i class="far fa-envelope"></i>
-              </a>
-              <a href="./assets/resume" class="about-me__link">
-                <i class="fas fa-file-pdf"></i>
-              </a>
-            </div>
+      <header class="header">
+        <div class="header__content">
+          <h1 class="title">Hello!</h1>
+          <h1 class="title blue">I'm Ashley.</h1>
+          <p class="header__para">
+            I'm a <b class="blue">Frontend Software Engineer</b> focused on
+            creating responsive web applications that prioritize user experience
+            and performance.
+            <br />
+            Here's more
+            <b class="blue click" onclick="toggleModal()">about me.</b>
+          </p>
+          <div class="social__list">
+            <a
+              href="https://www.linkedin.com/in/ashley-lairson-8b297965/"
+              class="social__link click"
+              target="_blank"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://github.com/ashlair"
+              class="social__link click"
+              target="_blank"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <!-- ADD RESUME -->
+            <a
+              href="./assets/resume"
+              class="social__link click"
+              target="_blank"
+            >
+              <i class="fas fa-file-pdf"></i>
+            </a>
           </div>
-          <figure class="about-me__img--container">
-            <img
-              src="./assets/undraw_proud_coder.svg"
-              class="about-me__img"
-              alt=""
-            />
-          </figure>
         </div>
-      </div>
-    </section>
-    <section id="languages">
-      <div class="container">
-        <div class="row">
-          <h1 class="section__title">
-            This is my <span class="text--blue">technology stack</span>
-          </h1>
+      </header>
+      <a href="#">
+        <button class="mail__btn click" onclick="toggleModal()">
+          <i class="fas fa-envelope"></i>
+        </button>
+      </a>
+      <a href="#projects" class="scroll">
+        <div class="scroll__icon click"></div>
+      </a>
+      <div class="modal">
+        <div class="modal__half modal__about">
+          <h3 class="modal__title modal__title--about">
+            Here's a bit about me
+          </h3>
+          <h4 class="modal__sub-title modal__sub-title--about">
+            Frontend Software Engineer
+          </h4>
+          <p class="modal__para">
+            I am <b class="blue">passionate</b> about creating responsive web
+            applications that prioritize <b class="blue">user experience</b> and
+            <b class="blue">performance</b>.
+            <br />
+            With a keen understanding of the current web standards and
+            practices, I aim to deliver solutions that not only meet but
+            <b class="blue">exceed</b> user expectations, ensuring a
+            <b class="blue">meaningful</b> digital impact.
+          </p>
           <div class="language__list">
-            <div class="language">
-              <figure class="language__img--wrapper">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/240px-HTML5_Badge.svg.png"
-                  alt="Html Logo"
-                  class="language__img"
-                />
-              </figure>
+            <figure class="language">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/240px-HTML5_Badge.svg.png"
+                alt="Html Logo"
+                class="language__img"
+              />
               <span class="language__name">HTML</span>
-            </div>
-            <div class="language">
-              <figure class="language__img--wrapper">
-                <img
-                  src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png"
-                  alt="CSS Logo"
-                  class="language__img"
-                />
-              </figure>
+            </figure>
+            <figure class="language">
+              <img
+                src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png"
+                alt="CSS Logo"
+                class="language__img"
+              />
               <span class="language__name">CSS</span>
-            </div>
-            <div class="language">
-              <figure class="language__img--wrapper">
-                <img
-                  src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png"
-                  alt="Javascript Logo"
-                  class="language__img"
-                />
-              </figure>
+            </figure>
+            <figure class="language">
+              <img
+                src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png"
+                alt="Javascript Logo"
+                class="language__img"
+              />
               <span class="language__name">JavaScript</span>
-            </div>
-            <div class="language">
-              <figure class="language__img--wrapper">
-                <img
-                  src="https://cdn.iconscout.com/icon/free/png-256/typescript-3521774-2945272.png"
-                  alt="TypeScript Logo"
-                  class="language__img"
-                />
-              </figure>
+            </figure>
+            <figure class="language">
+              <img
+                src="https://cdn.iconscout.com/icon/free/png-256/typescript-3521774-2945272.png"
+                alt="TypeScript Logo"
+                class="language__img"
+              />
               <span class="language__name">TypeScript</span>
-            </div>
-            <div class="language">
-              <figure class="language__img--wrapper">
-                <img
-                  src="./assets/angular.svg"
-                  alt="Angular Logo"
-                  class="language__img"
-                />
-              </figure>
+            </figure>
+            <figure class="language">
+              <img
+                src="./assets/angular.svg"
+                alt="Angular Logo"
+                class="language__img"
+              />
               <span class="language__name">Angular</span>
-            </div>
-            <div class="language">
-              <figure class="language__img--wrapper">
-                <img
-                  src="./assets/nodejs.svg"
-                  alt="NodeJS Logo"
-                  class="language__img"
-                />
-              </figure>
+            </figure>
+            <figure class="language">
+              <img
+                src="./assets/nodejs.svg"
+                alt="NodeJS Logo"
+                class="language__img"
+              />
               <span class="language__name">NodeJS</span>
-            </div>
-            <div class="language">
-              <figure class="language__img--wrapper">
-                <img
-                  src="./assets/figma.svg"
-                  alt="Figma Logo"
-                  class="language__img"
-                />
-              </figure>
+            </figure>
+            <figure class="language">
+              <img
+                src="./assets/figma.svg"
+                alt="Figma Logo"
+                class="language__img"
+              />
               <span class="language__name">Figma</span>
+            </figure>
+          </div>
+        </div>
+        <div class="modal__half modal__contact">
+          <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+          <h3 class="modal__title modal__title--contact">Let's have a chat!</h3>
+          <h4 class="modal__sub-title modal__sub-title--contact">
+            I'm currently open to new opportunities.
+          </h4>
+          <form id="contact__form" onsubmit="contact(event)">
+            <div class="form__item">
+              <label class="form__item--label">Name</label>
+              <input class="input" type="text" name="user_name" id="" />
             </div>
+            <div class="form__item">
+              <label class="form__item--label">Email</label>
+              <input class="input" type="email" name="user_email" id="" />
+            </div>
+            <div class="form__item">
+              <label class="form__item--label">Message</label>
+              <textarea class="input" type="text" name="message" id="">
+Write your message</textarea
+              >
+            </div>
+            <button type="submit" id="contact__submit" class="form__submit">
+              Send
+            </button>
+          </form>
+          <div class="modal__overlay modal__overlay--loading">
+            <i class="fas fa-spinner"></i>
+          </div>
+          <div class="modal__overlay modal__overlay--success">
+            Thanks for the message! Looking forward to speaking to you soon.
           </div>
         </div>
       </div>
@@ -172,7 +208,7 @@
       <div class="container">
         <div class="row">
           <h1 class="section__title">
-            Here are some of my <span class="text--blue">projects</span>
+            Here are some of my <span class="blue">projects</span>
           </h1>
           <ul class="project__list">
             <li class="project">
@@ -210,7 +246,7 @@
                 </div>
               </div>
             </li>
-            <li class="project">
+            <!-- <li class="project">
               <div class="project__wrapper">
                 <img
                   src="./assets/wet.svg"
@@ -279,7 +315,7 @@
                   </div>
                 </div>
               </div>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -288,7 +324,7 @@
       <div class="row footer__row">
         <a href="#" class="footer__anchor">
           <figure class="footer__logo">
-            <img src="./assets/logo.png" class="footer__logo--img" alt="" />
+            <img src="./assets/logo.svg" class="footer__logo--img" alt="" />
           </figure>
           <span class="footer__logo--popper">
             Top
@@ -297,26 +333,27 @@
         </a>
         <div class="footer__social--list">
           <a
-            href="https://google.com"
-            class="footer__social--link link__hover-effect link__hover-effect--white"
+            href="https://github.com/ashlair"
+            class="footer__social--link link__hover-effect link__hover-effect--black"
             target="_blank"
             >GitHub</a
           >
           <a
-            href="https://google.com"
-            class="footer__social--link link__hover-effect link__hover-effect--white"
+            href="https://www.linkedin.com/in/ashley-lairson-8b297965/"
+            class="footer__social--link link__hover-effect link__hover-effect--black"
             target="_blank"
             >LinkedIn</a
           >
           <a
             href="mailto:ashleylairson@gmail.com"
-            class="footer__social--link link__hover-effect link__hover-effect--white"
+            class="footer__social--link link__hover-effect link__hover-effect--black"
             target="_blank"
             >Email</a
           >
+          <!-- ADD RESUME -->
           <a
             href="./assets/resume"
-            class="footer__social--link link__hover-effect link__hover-effect--white"
+            class="footer__social--link link__hover-effect link__hover-effect--black"
             target="_blank"
             >Resume</a
           >
