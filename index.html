@@ -25,7 +25,7 @@
     </script>
   </head>
   <body>
-    <section id="landing-page" onmousemove="moveBackground(event)">
+    <section id="landing-page">
       <nav>
         <figure>
           <img id="personal-logo" src="./assets/logo.svg" alt="" />
@@ -49,15 +49,15 @@
       </nav>
       <header class="header">
         <div class="header__content">
-          <h1 class="title">Hello!</h1>
-          <h1 class="title blue">I'm Ashley.</h1>
+          <p class="pretitle blue">Hello, I'm</p>
+          <h1 class="title">Ashley Lairson</h1>
+          <h2 class="posttitle">Frontend Software Engineer</h2>
           <p class="header__para">
-            I'm a <b class="blue">Frontend Software Engineer</b> focused on
-            creating responsive web applications that prioritize user experience
-            and performance.
+            I'm focused on creating responsive web applications that prioritize
+            user experience and performance.
             <br />
             Here's more
-            <b class="blue click" onclick="toggleModal()">about me.</b>
+            <span class="blue click" onclick="toggleModal()">about me.</span>
           </p>
           <div class="social__list">
             <a
@@ -74,15 +74,17 @@
             >
               <i class="fab fa-github"></i>
             </a>
-            <!-- ADD RESUME -->
             <a
-              href="./assets/resume"
+              href="./assets/resume.pdf"
               class="social__link click"
               target="_blank"
             >
               <i class="fas fa-file-pdf"></i>
             </a>
           </div>
+        </div>
+        <div class="header__picture">
+          <img src="./assets/me.jpg" class="responsive" alt="" />
         </div>
       </header>
       <a href="#">
@@ -207,14 +209,12 @@ Write your message</textarea
     <section id="projects">
       <div class="container">
         <div class="row">
-          <h1 class="section__title">
-            Here are some of my <span class="blue">projects</span>
-          </h1>
+          <h1 class="section__title">Projects</h1>
           <ul class="project__list">
             <li class="project">
               <div class="project__wrapper">
                 <img
-                  src="./assets/fitness_tracker.png"
+                  src="./assets/fitness.png"
                   class="project__img"
                   alt="Fitness Tracker"
                 />
@@ -227,7 +227,7 @@ Write your message</textarea
                     This personal project application allows users to log in,
                     track exercises, and manage exercise data. Uses Firebase to
                     store authentication and exercise data. Originally built
-                    basic Angular Material designs, but redesigned to enchance
+                    basic Angular Material designs, but redesigned to enhance
                     user experience.
                   </p>
                   <div class="project__description--links">
@@ -247,10 +247,10 @@ Write your message</textarea
                 </div>
               </div>
             </li>
-            <!-- <li class="project">
+            <li class="project">
               <div class="project__wrapper">
                 <img
-                  src="./assets/wet.svg"
+                  src="./assets/recipes.png"
                   class="project__img"
                   alt="Recipe Book"
                 />
@@ -262,9 +262,9 @@ Write your message</textarea
                   <p class="project__description--para">
                     This personal project application allows users to log in,
                     save recipes, and create shopping lists. Uses Firebase to
-                    store authentication and recipe data. Originally built
-                    basic Bootstrap design, but redesigned to enchance
-                    user experience.
+                    store authentication and recipe data. Originally built basic
+                    Bootstrap design, but will be redesigned to enchance user
+                    experience.
                   </p>
                   <div class="project__description--links">
                     <a
@@ -282,10 +282,14 @@ Write your message</textarea
                   </div>
                 </div>
               </div>
-            </li> -->
+            </li>
             <li class="project">
               <div class="project__wrapper">
-                <img src="./assets/wet.svg" class="project__img" alt="WET" />
+                <img
+                  src="./assets/wet.png"
+                  class="responsive project__img"
+                  alt="WET"
+                />
                 <div class="project__description">
                   <h3 class="project__description--title">WET</h3>
                   <h4 class="project__description--sub-title">
@@ -294,11 +298,9 @@ Write your message</textarea
                   <p class="project__description--para">
                     This freelance website was created as a tool for clients to
                     book appointments for IV treatments and learn more
-                    information about the company. Used Wordpress as the
-                    platform with additional scripting to enhance the site.
-                    Originally designed for desktop, but made responsive to
-                    mobile. Website was discontinued, but the link to the design
-                    prototype is available.
+                    information about the company. Wordpress was the platform
+                    with additional scripting to enhance the site. Designed for
+                    desktop, but made responsive to mobile.
                   </p>
                   <div class="project__description--links">
                     <a
@@ -345,9 +347,8 @@ Write your message</textarea
             target="_blank"
             >Email</a
           >
-          <!-- ADD RESUME -->
           <a
-            href="./assets/resume"
+            href="./assets/resume.pdf"
             class="footer__social--link link__hover-effect link__hover-effect--black"
             target="_blank"
             >Resume</a
