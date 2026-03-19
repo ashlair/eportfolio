@@ -20,7 +20,7 @@ function contact(event) {
       "service_6hjua48",
       "template_hn8rv8b",
       event.target,
-      "33LRvUt1rwZS7izvI"
+      "33LRvUt1rwZS7izvI",
     )
     .then(() => {
       loading.classList.remove("modal__overlay--visible");
@@ -29,7 +29,7 @@ function contact(event) {
     .catch(() => {
       loading.classList.remove("modal__overlay--visible");
       alert(
-        "The email service is temporarily unavailable. Please contact me directly on email@gmail.com"
+        "The email service is temporarily unavailable. Please contact me directly on ashleylairson@gmail.com",
       );
     });
 }
