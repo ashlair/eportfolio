@@ -4,7 +4,22 @@
 body {
   width: 100%;
   max-width: 1200px;
+  min-height: 100vh;
   margin: 0 auto;
+
+  /* Keeps the gradient fixed in the viewport so it doesn't stretch or break when scrolling */
+  background-attachment: fixed;
+  /* Set the width to 100% and the height to your specific value (e.g., 400px) */
+  background-size:
+    100% 400px,
+    100% 400px;
+
+  /* Prevents the gradient from tiling/repeating down the page */
+  background-repeat: no-repeat;
+}
+
+main {
+  margin: 0 16px;
 }
 
 * {
@@ -28,20 +43,28 @@ h1 {
 
 h2 {
   font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 400;
 }
 
 h3 {
   font-size: clamp(24px, 2.5vw, 40px);
+  font-weight: 400;
 }
 
 h4 {
   font-size: clamp(18px, 1vw, 32px);
+  font-weight: 500;
 }
 
-p, span {
+p,
+span {
   font-family: "Lora", serif;
   line-height: 1.5;
   font-size: clamp(14px, 1vw, 18px);
+
+  &.eyebrow {
+    font-size: 11px;
+  }
 }
 
 a {
@@ -93,6 +116,23 @@ label {
   width: 100%;
   height: auto;
 }
+
+/* .header-gradient {
+  display: block;
+  width: 100%;
+  height: 25%;
+  background: linear-gradient(to right, blue, green);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+} */
 
 .link__hover-effect:after {
   content: "";
@@ -295,7 +335,7 @@ nav {
 
 #personal-logo {
   width: auto;
-  height: 50px;
+  height: 75px;
 }
 
 .nav__link {
@@ -331,7 +371,10 @@ nav {
   display: flex;
   visibility: hidden;
   z-index: -1;
-  transition: visibility 1s, z-index 1s, box-shadow 0.5s ease;
+  transition:
+    visibility 1s,
+    z-index 1s,
+    box-shadow 0.5s ease;
 }
 
 .modal--open .modal {
@@ -458,12 +501,59 @@ nav {
   z-index: 100;
 }
 
-/* LANGUAGES */
-
-.language__list {
+/* TECH STACK */
+#tech-grid {
   display: flex;
   flex-wrap: wrap;
+
+  > figure {
+    > img {
+      width: 25%;
+    }
+  }
 }
+
+/* EXPERIENCE */
+#experience-grid {
+  > div {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    border-bottom: 1px solid #000;
+    padding: 24px 0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    > #experience-dates {
+      display: flex;
+      margin: 0 16px;
+    }
+
+    > #experience-text {
+      margin: 0 16px;
+    }
+  }
+}
+
+/* PROJECTS */
+#project-grid {
+  display: flex;
+  flex-wrap: wrap;
+
+  > div {
+    display: flex;
+    flex-wrap: wrap;
+    width: 45%;
+    margin: 2.5% auto;
+    > img {
+      width: 100%;
+      border-radius: 10px;
+    }
+  }
+}
+
+/* LANGUAGES */
 
 .language {
   width: 25%;
@@ -480,10 +570,7 @@ nav {
   transform: scale(0.9);
 }
 
-.language__img {
-  width: 100%;
-}
-
+/*classes not in use, saving for styles
 .language__name {
   position: absolute;
   bottom: -10px;
@@ -495,7 +582,7 @@ nav {
 }
 
 /* PROJECTS */
-
+/*
 #projects {
   padding: 0 20px;
 }
@@ -567,7 +654,9 @@ nav {
   padding: 0 30px;
   z-index: 3;
   opacity: 0;
-  transition: transform 450ms, opacity 300ms;
+  transition:
+    transform 450ms,
+    opacity 300ms;
 }
 
 .project__description--para {
@@ -642,24 +731,30 @@ footer {
 
 @media (prefers-color-scheme: light) {
   body {
-    background: #f6f1f1;
+    background-image:
+      linear-gradient(
+        to bottom,
+        rgba(246, 241, 241, 0) 0%,
+        rgba(246, 241, 241, 1) 100%
+      ),
+      linear-gradient(to right, #ffa8d4, #c2fcff);
+    background-color: #f6f1f1;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   body {
-    background: #242424;
+    background-image:
+      linear-gradient(
+        to bottom,
+        rgba(36, 36, 36, 0.5) 0%,
+        rgba(36, 36, 36, 1) 100%
+      ),
+      linear-gradient(to right, #ff007f, #00f2fe);
+    background-color: #242424;
+    color: white;
   }
-  .title,
-  .posttitle,
-  .section__title,
-  .section__sub-title,
-  .nav__link--anchor,
-  .fa-adjust,
-  .header__para,
-  .footer__social--link,
-  .footer__copyright,
-  .footer__logo--popper {
+  .nav__link--anchor {
     color: white;
   }
   #personal-logo,
@@ -763,7 +858,9 @@ footer {
   #landing-page {
     margin-bottom: 24px;
   }
-  .pretitle, .title, .posttitle {
+  .pretitle,
+  .title,
+  .posttitle {
     margin-bottom: 8px;
   }
   .header {

@@ -13,7 +13,6 @@
       src="https://kit.fontawesome.com/2bf2d89947.js"
       crossorigin="anonymous"
     ></script>
-    <script src="./index.js"></script>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
@@ -25,298 +24,162 @@
     </script>
   </head>
   <body>
-    <section id="landing-page">
-      <nav>
-        <figure>
-          <img id="personal-logo" src="./assets/logo.svg" alt="" />
-        </figure>
-        <ul class="nav__link--list">
-          <li class="nav__link">
-            <a
-              href="#projects"
-              class="nav__link--anchor link__hover-effect link__hover-effect--black"
-              >Projects</a
-            >
-          </li>
-          <li class="nav__link">
-            <a
-              onclick="toggleModal()"
-              class="nav__link--anchor link__hover-effect link__hover-effect--black"
-              >Contact</a
-            >
-          </li>
-        </ul>
-      </nav>
-      <header class="header">
-        <div class="header__content">
-          <span class="pretitle blue">Hello, I'm</span>
-          <h1 class="title">Ashley Lairson</h1>
-          <h2 class="posttitle">Frontend Software Engineer</h2>
-          <p class="header__para">
-            I'm focused on creating responsive web applications that prioritize
-            user experience and performance.
-            <br />
-            Here's more
-            <span class="blue click" onclick="toggleModal()">about me.</span>
-          </p>
-          <div class="social__list">
-            <a
-              href="https://www.linkedin.com/in/ashley-lairson-8b297965/"
-              class="social__link click"
-              target="_blank"
-            >
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a
-              href="https://github.com/ashlair"
-              class="social__link click"
-              target="_blank"
-            >
-              <i class="fab fa-github"></i>
-            </a>
-            <a
-              href="./assets/resume.pdf"
-              class="social__link click"
-              target="_blank"
-            >
-              <i class="fas fa-file-pdf"></i>
-            </a>
-          </div>
-        </div>
-        <div class="header__picture">
-          <img src="./assets/me.jpg" class="responsive" alt="" />
-        </div>
-      </header>
-      <a href="#">
-        <button class="mail__btn click" onclick="toggleModal()">
-          <i class="fas fa-envelope"></i>
-        </button>
-      </a>
-      <a href="#projects" class="scroll">
-        <div class="scroll__icon click"></div>
-      </a>
-      <div class="modal">
-        <div class="modal__half modal__about">
-          <h3 class="modal__title modal__title--about">
-            Here's a bit about me
-          </h3>
-          <h4 class="modal__sub-title modal__sub-title--about">
-            Frontend Software Engineer
-          </h4>
-          <p class="modal__para">
-            I am <b class="blue">passionate</b> about creating responsive web
-            applications that prioritize <b class="blue">user experience</b> and
-            <b class="blue">performance</b>.
-            <br />
-            With a keen understanding of the current web standards and
-            practices, I aim to deliver solutions that not only meet but
-            <b class="blue">exceed</b> user expectations, ensuring a
-            <b class="blue">meaningful</b> digital impact.
-          </p>
-          <div class="language__list">
-            <figure class="language">
-              <img
-                src="./assets/HTML5.png"
-                alt="Html Logo"
-                class="language__img"
-              />
-              <span class="language__name">HTML</span>
+    <main>
+      <div class="header-gradient">
+        <section id="landing-page">
+          <nav>
+            <figure>
+              <img id="personal-logo" src="./assets/ashleylairson.png" alt="" />
             </figure>
-            <figure class="language">
-              <img
-                src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png"
-                alt="CSS Logo"
-                class="language__img"
-              />
-              <span class="language__name">CSS</span>
-            </figure>
-            <figure class="language">
-              <img
-                src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png"
-                alt="Javascript Logo"
-                class="language__img"
-              />
-              <span class="language__name">JavaScript</span>
-            </figure>
-            <figure class="language">
-              <img
-                src="https://cdn.iconscout.com/icon/free/png-256/typescript-3521774-2945272.png"
-                alt="TypeScript Logo"
-                class="language__img"
-              />
-              <span class="language__name">TypeScript</span>
-            </figure>
-            <figure class="language">
-              <img
-                src="./assets/angular.svg"
-                alt="Angular Logo"
-                class="language__img"
-              />
-              <span class="language__name">Angular</span>
-            </figure>
-            <figure class="language">
-              <img
-                src="./assets/nodejs.svg"
-                alt="NodeJS Logo"
-                class="language__img"
-              />
-              <span class="language__name">NodeJS</span>
-            </figure>
-            <figure class="language">
-              <img
-                src="./assets/figma.svg"
-                alt="Figma Logo"
-                class="language__img"
-              />
-              <span class="language__name">Figma</span>
-            </figure>
-          </div>
-        </div>
-        <div class="modal__half modal__contact">
-          <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
-          <h3 class="modal__title modal__title--contact">Let's have a chat!</h3>
-          <h4 class="modal__sub-title modal__sub-title--contact">
-            I'm currently open to new opportunities.
-          </h4>
-          <form id="contact__form" onsubmit="contact(event)">
-            <div class="form__item">
-              <label class="form__item--label">Name</label>
-              <input class="input" type="text" name="user_name" id="" />
+            <ul class="nav__link--list">
+              <li class="nav__link">
+                <a
+                  href="#projects"
+                  class="nav__link--anchor link__hover-effect link__hover-effect--black"
+                  >Projects</a
+                >
+              </li>
+              <li class="nav__link">
+                <a
+                  href="#experience"
+                  class="nav__link--anchor link__hover-effect link__hover-effect--black"
+                  >Experience</a
+                >
+              </li>
+              <li class="nav__link">
+                <a
+                  onclick="toggleModal()"
+                  class="nav__link--anchor link__hover-effect link__hover-effect--black"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <header class="header">
+            <div class="header__content">
+              <span class="pretitle blue">Hello, I'm</span>
+              <h1 class="title">Ashley Lairson</h1>
+              <h2 class="posttitle">Frontend Software Engineer</h2>
+              <p class="header__para">
+                I'm focused on creating responsive web applications that
+                prioritize user experience and performance.
+                <br />
+                Here's more
+                <span class="blue click" onclick="toggleModal()"
+                  >about me.</span
+                >
+              </p>
+              <div class="social__list">
+                <a
+                  href="https://www.linkedin.com/in/ashley-lairson-8b297965/"
+                  class="social__link click"
+                  target="_blank"
+                >
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a
+                  href="https://github.com/ashlair"
+                  class="social__link click"
+                  target="_blank"
+                >
+                  <i class="fab fa-github"></i>
+                </a>
+                <a
+                  href="./assets/resume.pdf"
+                  class="social__link click"
+                  target="_blank"
+                >
+                  <i class="fas fa-file-pdf"></i>
+                </a>
+              </div>
             </div>
-            <div class="form__item">
-              <label class="form__item--label">Email</label>
-              <input class="input" type="email" name="user_email" id="" />
+            <div class="header__picture">
+              <img src="./assets/me.jpg" class="responsive" alt="" />
             </div>
-            <div class="form__item">
-              <label class="form__item--label">Message</label>
-              <textarea class="input" type="text" name="message" id="">
-Write your message</textarea
-              >
-            </div>
-            <button type="submit" id="contact__submit" class="form__submit">
-              Send
+          </header>
+          <a href="#">
+            <button class="mail__btn click" onclick="toggleModal()">
+              <i class="fas fa-envelope"></i>
             </button>
-          </form>
-          <div class="modal__overlay modal__overlay--loading">
-            <i class="fas fa-spinner"></i>
+          </a>
+          <a href="#projects" class="scroll">
+            <div class="scroll__icon click"></div>
+          </a>
+          <div class="modal">
+            <div class="modal__half modal__about">
+              <h3 class="modal__title modal__title--about">
+                Here's a bit about me
+              </h3>
+              <h4 class="modal__sub-title modal__sub-title--about">
+                Frontend Software Engineer
+              </h4>
+              <p class="modal__para">
+                I am <b class="blue">passionate</b> about creating responsive
+                web applications that prioritize
+                <b class="blue">user experience</b> and
+                <b class="blue">performance</b>.
+                <br />
+                With a keen understanding of the current web standards and
+                practices, I aim to deliver solutions that not only meet but
+                <b class="blue">exceed</b> user expectations, ensuring a
+                <b class="blue">meaningful</b> digital impact.
+              </p>
+              <div id="languageContainer" class="language__list"></div>
+            </div>
+            <div class="modal__half modal__contact">
+              <i
+                class="fas fa-times modal__exit click"
+                onclick="toggleModal()"
+              ></i>
+              <h3 class="modal__title modal__title--contact">
+                Let's have a chat!
+              </h3>
+              <h4 class="modal__sub-title modal__sub-title--contact">
+                I'm currently open to new opportunities.
+              </h4>
+              <form id="contact__form" onsubmit="contact(event)">
+                <div class="form__item">
+                  <label class="form__item--label">Name</label>
+                  <input class="input" type="text" name="user_name" id="" />
+                </div>
+                <div class="form__item">
+                  <label class="form__item--label">Email</label>
+                  <input class="input" type="email" name="user_email" id="" />
+                </div>
+                <div class="form__item">
+                  <label class="form__item--label">Message</label>
+                  <textarea class="input" type="text" name="message" id="">
+  Write your message</textarea
+                  >
+                </div>
+                <button type="submit" id="contact__submit" class="form__submit">
+                  Send
+                </button>
+              </form>
+              <div class="modal__overlay modal__overlay--loading">
+                <i class="fas fa-spinner"></i>
+              </div>
+              <div class="modal__overlay modal__overlay--success">
+                Thanks for the message! Looking forward to speaking to you soon.
+              </div>
+            </div>
           </div>
-          <div class="modal__overlay modal__overlay--success">
-            Thanks for the message! Looking forward to speaking to you soon.
-          </div>
-        </div>
+        </section>
       </div>
-    </section>
-    <section id="projects">
-      <div class="container">
-        <div class="row">
-          <h2 class="section__title">Projects</h2>
-          <ul class="project__list">
-            <li class="project">
-              <div class="project__wrapper">
-                <img
-                  src="./assets/fitness.png"
-                  class="project__img"
-                  alt="Fitness Tracker"
-                />
-                <div class="project__description">
-                  <h3 class="project__description--title">Fitness Tracker</h3>
-                  <h4 class="project__description--sub-title">
-                    HTML, CSS, Typescript, Angular, NgRx, RxJS
-                  </h4>
-                  <p class="project__description--para">
-                    This personal project application allows users to log in,
-                    track exercises, and manage exercise data. Uses Firebase to
-                    store authentication and exercise data. Originally built
-                    basic Angular Material designs, but redesigned to enhance
-                    user experience.
-                  </p>
-                  <div class="project__description--links">
-                    <a
-                      href="https://github.com/ashlair/projects/tree/main/fitness-tracker"
-                      target="_blank"
-                      class="project__description--link"
-                      ><i class="fab fa-github"></i
-                    ></a>
-                    <a
-                      href="https://ng-fitness-tracker-92603.web.app/"
-                      target="_blank"
-                      class="project__description--link"
-                      ><i class="fas fa-link"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="project">
-              <div class="project__wrapper">
-                <img
-                  src="./assets/recipes.png"
-                  class="project__img"
-                  alt="Recipe Book"
-                />
-                <div class="project__description">
-                  <h3 class="project__description--title">Recipe Book</h3>
-                  <h4 class="project__description--sub-title">
-                    HTML, CSS, Typescript, Angular, NgRx, RxJS
-                  </h4>
-                  <p class="project__description--para">
-                    This personal project application allows users to log in,
-                    save recipes, and create shopping lists. Uses Firebase to
-                    store authentication and recipe data. Originally built basic
-                    Bootstrap design, but will be redesigned to enchance user
-                    experience.
-                  </p>
-                  <div class="project__description--links">
-                    <a
-                      href="https://github.com/ashlair/recipe-book"
-                      target="_blank"
-                      class="project__description--link"
-                      ><i class="fab fa-github"></i
-                    ></a>
-                    <a
-                      href="https://ashlair.github.io/recipe-book/"
-                      target="_blank"
-                      class="project__description--link"
-                      ><i class="fas fa-link"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="project">
-              <div class="project__wrapper">
-                <img
-                  src="./assets/wet.png"
-                  class="responsive project__img"
-                  alt="WET"
-                />
-                <div class="project__description">
-                  <h3 class="project__description--title">WET</h3>
-                  <h4 class="project__description--sub-title">
-                    HTML, CSS, Javascript, Figma, Wordpress
-                  </h4>
-                  <p class="project__description--para">
-                    This freelance website was created as a tool for clients to
-                    book appointments for IV treatments and learn more
-                    information about the company. Wordpress was the platform
-                    with additional scripting to enhance the site. Designed for
-                    desktop, but made responsive to mobile.
-                  </p>
-                  <div class="project__description--links">
-                    <a
-                      href="https://www.figma.com/proto/f6sG1QBvMR8ymXWLIThbfQ/WET?node-id=0-1&t=oIA4nGD7BN7FI3FK-1"
-                      target="_blank"
-                      class="project__description--link"
-                      ><i class="fab fa-figma"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
+        <section id="tech-stack">
+          <h2>Tech</h2>
+          <div id="tech-grid"></div>
+        </section>
+        <section id="experience">
+          <span class="eyebrow">Experience</span>
+          <div id="experience-grid"></div>
+        </section>
+        <section id="projects">
+          <h2>Projects</h2>
+          <div id="project-grid"></div>
+        </section>
       </div>
-    </section>
+    </main>
     <footer>
       <div class="row footer__row">
         <a href="#" class="footer__anchor">
@@ -357,5 +220,6 @@ Write your message</textarea
         <div class="footer__copyright">Copyright © 2023 Ashley Lairson</div>
       </div>
     </footer>
+    <script src="./index.js"></script>
   </body>
 </html>
