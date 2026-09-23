@@ -7,19 +7,16 @@ body {
   min-height: 100vh;
   margin: 0 auto;
 
-  /* Keeps the gradient fixed in the viewport so it doesn't stretch or break when scrolling */
+  /* gradient position*/
   background-attachment: fixed;
-  /* Set the width to 100% and the height to your specific value (e.g., 400px) */
   background-size:
-    100% 400px,
-    100% 400px;
-
-  /* Prevents the gradient from tiling/repeating down the page */
+    100% 300px,
+    100% 300px;
   background-repeat: no-repeat;
 }
 
 main {
-  margin: 0 16px;
+  margin: 0 24px;
 }
 
 * {
@@ -62,7 +59,8 @@ span {
   line-height: 1.5;
   font-size: clamp(14px, 1vw, 18px);
 
-  &.eyebrow {
+  &.eyebrow,
+  &.tech {
     font-size: 11px;
   }
 }
@@ -196,10 +194,6 @@ nav,
   cursor: pointer;
 }
 
-.click:hover {
-  transform: scale(1.1);
-}
-
 .click:active {
   transform: scale(0.8);
 }
@@ -231,7 +225,7 @@ nav,
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 0 20px;
+  gap: 16px;
 }
 
 .header {
@@ -248,9 +242,19 @@ nav,
 .header__content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   gap: 16px;
   width: 70%;
+}
+
+.header__titles {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header__img {
+  width: 600px;
 }
 
 .header__picture {
@@ -266,12 +270,7 @@ nav,
 
 .social__list {
   display: flex;
-  gap: 16px;
-}
-
-.social__link {
-  color: #146c94;
-  font-size: 18px;
+  gap: 24px;
 }
 
 .mail__btn {
@@ -330,7 +329,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
+  height: 75px;
 }
 
 #personal-logo {
@@ -346,7 +345,8 @@ nav {
   display: flex;
 }
 
-.nav__link--anchor {
+.nav__link--anchor,
+.social__link {
   font-size: 16px;
   color: #242424;
   font-weight: 600;
@@ -505,10 +505,36 @@ nav {
 #tech-grid {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 16px;
 
   > figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      filter: brightness(80%);
+      justify-content: space-around;
+
+      > img {
+        transform: scale(0.75);
+      }
+
+      > span {
+        transform: scale(1);
+      }
+    }
+
     > img {
-      width: 25%;
+      width: 50px;
+      transition: all 300ms ease;
+    }
+
+    > span {
+      transform: scale(0);
+      transition: all 300ms ease;
     }
   }
 }
@@ -551,34 +577,6 @@ nav {
       border-radius: 10px;
     }
   }
-}
-
-/* LANGUAGES */
-
-.language {
-  width: 25%;
-  padding: 16px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: all 300ms ease;
-}
-
-.language:hover {
-  filter: brightness(80%);
-  transform: scale(0.9);
-}
-
-/*classes not in use, saving for styles
-.language__name {
-  position: absolute;
-  bottom: -10px;
-  transform: scale(0);
-  transition: all 300ms ease;
-}
-.language:hover .language__name {
-  transform: scale(1);
 }
 
 /* PROJECTS */
@@ -688,20 +686,18 @@ footer {
   max-width: 500px;
   display: flex;
   justify-content: space-evenly;
-  margin-bottom: 1%;
 }
 
 .footer__row {
   display: flex;
   flex-direction: column;
+  gap: 8px;
   align-items: center;
   justify-content: center;
-  padding: 4% 0;
 }
 
 .footer__logo--img {
-  width: 100px;
-  height: auto;
+  height: 75px;
 }
 
 .footer__social--link,
@@ -721,7 +717,6 @@ footer {
 
 .footer__anchor {
   position: relative;
-  margin-bottom: 20px;
 }
 
 .footer__anchor:hover .footer__logo--popper {
@@ -754,39 +749,47 @@ footer {
     background-color: #242424;
     color: white;
   }
-  .nav__link--anchor {
+  .nav__link--anchor,
+  .social__link,
+  .footer__social--link,
+  .footer__copyright {
     color: white;
   }
   #personal-logo,
   .footer__logo--img {
     filter: invert(1);
   }
-  .scroll__icon {
-    border-color: white;
-  }
-  .scroll__icon:after,
   .link__hover-effect--black:after {
     background-color: white;
   }
-  .mail__btn {
-    background-color: white;
-    color: #242424;
-  }
-  .blue {
-    color: #53b9e8;
-  }
-  .social__link {
-    color: #53b9e8;
+  #experience-grid {
+    > div {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+    }
   }
 }
 
 /* Larger tablets */
-@media (max-width: 1024px) {
+@media (max-width: 1032px) {
   body {
     max-height: 100vh;
   }
   #landing-page {
     min-height: auto;
+
+    #tech-grid {
+      > figure {
+        &:hover {
+          > img {
+            transform: scale(0.8);
+          }
+        }
+
+        > img {
+          width: 36px;
+        }
+      }
+    }
   }
   .modal {
     top: 25%;

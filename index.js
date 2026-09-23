@@ -25,7 +25,7 @@ const techStack = [
     id: "typescript",
     alt: "TypeScript Logo",
     name: "TypeScript",
-    src: "https://cdn.iconscout.com/icon/free/png-256/typescript-3521774-2945272.png",
+    src: "./assets/typescript.svg",
   },
   {
     id: "angular",
@@ -37,7 +37,31 @@ const techStack = [
     id: "nodeJs",
     alt: "NodeJS Logo",
     name: "NodeJS",
-    src: "./assets/nodejs.svg",
+    src: "./assets/nodejs.png",
+  },
+  {
+    id: "csharp",
+    alt: "C Sharp Logo",
+    name: "C#",
+    src: "./assets/csharp.png",
+  },
+  {
+    id: "aspnet",
+    alt: "Dot Net Logo",
+    name: "ASP.NET",
+    src: "./assets/netlogo.png",
+  },
+  {
+    id: "java",
+    alt: "Java Logo",
+    name: "Java",
+    src: "./assets/java.png",
+  },
+  {
+    id: "python",
+    alt: "Python Logo",
+    name: "Python",
+    src: "./assets/python.png",
   },
   {
     id: "figma",
@@ -136,7 +160,7 @@ const projects = [
 const createTechStackHTML = (tech) => `
   <figure class="language">
     <img id="${tech.id}" src="${tech.src}" alt="${tech.alt}" />
-    <span>${tech.name}</span>
+    <span class="tech">${tech.name}</span>
   </figure>
 `;
 const createExperienceHTML = (exp) => `
@@ -163,11 +187,11 @@ const createProjectHTML = (proj) => `
 function renderGrid(containerId, dataArray, templateFunction) {
   const container = document.getElementById(containerId);
   if (!container) return;
+  this.isLandingInView();
 
   container.innerHTML = dataArray
     .map((item) => templateFunction(item))
     .join("");
-  console.log(container.innerHTML);
 }
 
 // run renderGrid(html id, data array, template)
@@ -216,4 +240,13 @@ function toggleModal() {
   isModalOpen = true;
   document.body.classList += " modal--open";
   this.languageList();
+}
+
+function isLandingInView() {
+  boop = document.getElementById("landing-page");
+  if (visualViewport) {
+    console.log(visualViewport);
+  } else {
+    console.log("boop do not");
+  }
 }

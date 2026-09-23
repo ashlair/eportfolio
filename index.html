@@ -34,16 +34,16 @@
             <ul class="nav__link--list">
               <li class="nav__link">
                 <a
-                  href="#projects"
+                  href="#experience"
                   class="nav__link--anchor link__hover-effect link__hover-effect--black"
-                  >Projects</a
+                  >Experience</a
                 >
               </li>
               <li class="nav__link">
                 <a
-                  href="#experience"
+                  href="#projects"
                   class="nav__link--anchor link__hover-effect link__hover-effect--black"
-                  >Experience</a
+                  >Projects</a
                 >
               </li>
               <li class="nav__link">
@@ -57,39 +57,38 @@
           </nav>
           <header class="header">
             <div class="header__content">
-              <span class="pretitle blue">Hello, I'm</span>
-              <h1 class="title">Ashley Lairson</h1>
-              <h2 class="posttitle">Frontend Software Engineer</h2>
+              <div class="header__titles">
+                <h1 class="title">Ashley Lairson</h1>
+                <h2 class="posttitle">Software Engineer</h2>
+              </div>
               <p class="header__para">
-                I'm focused on creating responsive web applications that
-                prioritize user experience and performance.
-                <br />
-                Here's more
-                <span class="blue click" onclick="toggleModal()"
-                  >about me.</span
-                >
+                I am passionate about creating responsive web applications 
+                that prioritize user experience and performance.
+                With a keen understanding of the current web standards 
+                and practices, I aim to deliver solutions that not only meet 
+                but exceed user expectations, ensuring a meaningful digital impact.
               </p>
               <div class="social__list">
                 <a
                   href="https://www.linkedin.com/in/ashley-lairson-8b297965/"
-                  class="social__link click"
+                  class="social__link link__hover-effect link__hover-effect--black click"
                   target="_blank"
                 >
-                  <i class="fab fa-linkedin-in"></i>
+                  LinkedIn
                 </a>
                 <a
                   href="https://github.com/ashlair"
-                  class="social__link click"
+                  class="social__link link__hover-effect link__hover-effect--black click"
                   target="_blank"
                 >
-                  <i class="fab fa-github"></i>
+                  GitHub
                 </a>
                 <a
                   href="./assets/resume.pdf"
-                  class="social__link click"
+                  class="social__link link__hover-effect link__hover-effect--black click"
                   target="_blank"
                 >
-                  <i class="fas fa-file-pdf"></i>
+                  Resume
                 </a>
               </div>
             </div>
@@ -97,14 +96,9 @@
               <img src="./assets/me.jpg" class="responsive" alt="" />
             </div>
           </header>
-          <a href="#">
-            <button class="mail__btn click" onclick="toggleModal()">
-              <i class="fas fa-envelope"></i>
-            </button>
-          </a>
-          <a href="#projects" class="scroll">
-            <div class="scroll__icon click"></div>
-          </a>
+          <div id="tech-stack">
+            <div id="tech-grid"></div>
+          </div>
           <div class="modal">
             <div class="modal__half modal__about">
               <h3 class="modal__title modal__title--about">
@@ -166,16 +160,12 @@
           </div>
         </section>
       </div>
-        <section id="tech-stack">
-          <h2>Tech</h2>
-          <div id="tech-grid"></div>
-        </section>
         <section id="experience">
           <span class="eyebrow">Experience</span>
           <div id="experience-grid"></div>
         </section>
         <section id="projects">
-          <h2>Projects</h2>
+          <span class="eyebrow">Projects</span>
           <div id="project-grid"></div>
         </section>
       </div>
@@ -184,7 +174,7 @@
       <div class="row footer__row">
         <a href="#" class="footer__anchor">
           <figure class="footer__logo">
-            <img src="./assets/logo.svg" class="footer__logo--img" alt="" />
+            <img src="./assets/ashleylairson.png" class="footer__logo--img" alt="" />
           </figure>
           <span class="footer__logo--popper">
             Top
@@ -217,7 +207,7 @@
             >Resume</a
           >
         </div>
-        <div class="footer__copyright">Copyright © 2023 Ashley Lairson</div>
+        <div class="footer__copyright">Copyright © 2026 Ashley Lairson</div>
       </div>
     </footer>
     <script src="./index.js"></script>
