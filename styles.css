@@ -203,7 +203,6 @@ body::before {
   position: fixed;
   inset: 0;
   background-color: var(--color-backdrop);
-  backdrop-filter: blur(4px);
   z-index: 50;
   opacity: 0;
   visibility: hidden;
@@ -215,6 +214,17 @@ body::before {
 .modal--open::before {
   opacity: 1;
   visibility: visible;
+}
+
+/* blur the page itself rather than using backdrop-filter */
+main,
+footer {
+  transition: filter 400ms ease;
+}
+
+.modal--open main,
+.modal--open footer {
+  filter: blur(4px);
 }
 
 /* lock page scroll while the modal is open */
@@ -582,7 +592,8 @@ nav {
     justify-content: center;
     align-items: center;
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
       filter: brightness(80%);
       justify-content: space-around;
 
