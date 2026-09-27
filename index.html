@@ -100,27 +100,6 @@
             <div id="tech-grid"></div>
           </div>
           <div class="modal">
-            <div class="modal__half modal__about">
-              <h3 class="modal__title modal__title--about">
-                Here's a bit about me
-              </h3>
-              <h4 class="modal__sub-title modal__sub-title--about">
-                Frontend Software Engineer
-              </h4>
-              <p class="modal__para">
-                I am <b class="blue">passionate</b> about creating responsive
-                web applications that prioritize
-                <b class="blue">user experience</b> and
-                <b class="blue">performance</b>.
-                <br />
-                With a keen understanding of the current web standards and
-                practices, I aim to deliver solutions that not only meet but
-                <b class="blue">exceed</b> user expectations, ensuring a
-                <b class="blue">meaningful</b> digital impact.
-              </p>
-              <div id="languageContainer" class="language__list"></div>
-            </div>
-            <div class="modal__half modal__contact">
               <i
                 class="fas fa-times modal__exit click"
                 onclick="toggleModal()"
@@ -156,17 +135,21 @@
               <div class="modal__overlay modal__overlay--success">
                 Thanks for the message! Looking forward to speaking to you soon.
               </div>
-            </div>
           </div>
         </section>
       </div>
         <section id="experience">
-          <span class="eyebrow">Experience</span>
+          <h2>Experience</h2>
+          <p>
+            I have <span id="years-experience" class="year"></span> of professional
+            development experience, with personal development experience
+            reaching all the way back to <span id="personal-start-year" class="year">2013</span>.
+          </p>
           <div id="experience-grid"></div>
         </section>
         <section id="projects">
-          <span class="eyebrow">Projects</span>
-          <div id="project-grid"></div>
+          <h2>Projects</h2>
+          <div id="project-grid" class="project__list"></div>
         </section>
       </div>
     </main>
@@ -176,10 +159,6 @@
           <figure class="footer__logo">
             <img src="./assets/ashleylairson.png" class="footer__logo--img" alt="" />
           </figure>
-          <span class="footer__logo--popper">
-            Top
-            <i class="fas fa-arrow-up"></i>
-          </span>
         </a>
         <div class="footer__social--list">
           <a
@@ -210,6 +189,14 @@
         <div class="footer__copyright">Copyright © 2026 Ashley Lairson</div>
       </div>
     </footer>
+    <button
+      id="back-to-top"
+      class="back-to-top"
+      aria-label="Back to top"
+      onclick="scrollToTop()"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </button>
     <script src="./index.js"></script>
   </body>
 </html>

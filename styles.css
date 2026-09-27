@@ -35,31 +35,30 @@ li {
 }
 
 h1 {
-  font-size: clamp(40px, 7vw, 96px);
+  font-size: clamp(40px, 7vw, 72px);
 }
 
 h2 {
-  font-size: clamp(32px, 3.5vw, 48px);
+  font-size: clamp(32px, 3.5vw, 40px);
   font-weight: 400;
 }
 
 h3 {
-  font-size: clamp(24px, 2.5vw, 40px);
+  font-size: clamp(24px, 2.5vw, 32px);
   font-weight: 400;
 }
 
 h4 {
   font-size: clamp(18px, 1vw, 32px);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 p,
 span {
   font-family: "Lora", serif;
   line-height: 1.5;
-  font-size: clamp(14px, 1vw, 18px);
+  font-size: clamp(12px, 1vw, 16px);
 
-  &.eyebrow,
   &.tech {
     font-size: 11px;
   }
@@ -96,7 +95,7 @@ textarea:hover {
 
 input:focus,
 textarea:focus {
-  border-color: #146c94;
+  border-color: #068454;
 }
 
 textarea {
@@ -115,23 +114,6 @@ label {
   height: auto;
 }
 
-/* .header-gradient {
-  display: block;
-  width: 100%;
-  height: 25%;
-  background: linear-gradient(to right, blue, green);
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
-} */
-
 .link__hover-effect:after {
   content: "";
   position: absolute;
@@ -147,7 +129,7 @@ label {
 }
 
 .link__hover-effect--black:after {
-  background-color: #000;
+  background-color: #242424;
 }
 
 .link__hover-effect:hover:after {
@@ -163,14 +145,75 @@ nav,
   transition: all 600ms 400ms;
 }
 
-.modal--open nav,
-.modal--open .scroll,
-.modal--open .header,
-.modal--open #projects,
-.modal--open footer {
+/* modal backdrop: fades the whole page behind the modal */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: rgba(28, 29, 37, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 50;
   opacity: 0;
   visibility: hidden;
-  transition: all 400ms;
+  transition:
+    opacity 400ms ease,
+    visibility 400ms;
+}
+
+.modal--open::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* lock page scroll while the modal is open */
+html {
+  scrollbar-gutter: stable;
+}
+
+body.modal--open {
+  overflow: hidden;
+}
+
+/* BACK TO TOP */
+.back-to-top {
+  position: fixed;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border: none;
+  border-radius: 50%;
+  background-color: #068454;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition:
+    opacity 300ms ease,
+    transform 300ms ease,
+    visibility 300ms;
+}
+
+.back-to-top--visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+}
+
+.modal--open .back-to-top {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .flex {
@@ -212,11 +255,6 @@ nav,
   text-align: left;
   line-height: 1;
   filter: brightness(80%);
-}
-
-.blue {
-  font-weight: 600;
-  color: #146c94;
 }
 
 /* LANDING PAGE */
@@ -271,21 +309,6 @@ nav,
 .social__list {
   display: flex;
   gap: 24px;
-}
-
-.mail__btn {
-  width: 70px;
-  height: 70px;
-  font-size: 32px;
-  border-radius: 50%;
-  border: none;
-  background-color: #242424;
-  color: #fff;
-  position: fixed;
-  bottom: 32px;
-  right: 40px;
-  z-index: 100;
-  box-shadow: 0 12px 30px 0 rgb(0, 0, 0, 0.55);
 }
 
 .scroll {
@@ -359,54 +382,37 @@ nav {
 /* MODAL */
 
 .modal {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  max-width: 1100px;
-  height: 700px;
+  transform: translate(-50%, -50%) scale(0.96);
+  width: calc(100% - 32px);
+  max-width: 560px;
+  max-height: calc(100dvh - 48px);
+  padding: 48px clamp(24px, 6vw, 56px);
   border-radius: 20px;
-  overflow: hidden;
+  background-color: #242424;
+  color: #fff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   display: flex;
+  flex-direction: column;
+  z-index: 60;
+  opacity: 0;
   visibility: hidden;
-  z-index: -1;
   transition:
-    visibility 1s,
-    z-index 1s,
+    opacity 400ms ease,
+    transform 400ms ease,
+    visibility 400ms,
     box-shadow 0.5s ease;
 }
 
 .modal--open .modal {
-  z-index: 60;
-  box-shadow: 0 20px 80px 0 rgba(0, 0, 0, 0.55);
+  opacity: 1;
   visibility: visible;
-}
-
-.modal__half {
-  width: 50%;
-  padding: 40px 72px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  transition: all 300ms ease-in;
-}
-
-.modal--open .modal__about,
-.modal--open .modal__contact {
-  transform: translateX(0%);
-}
-
-.modal__about {
-  background-color: #f6f1f1;
-  transform: translateX(-110%);
-}
-
-.modal__contact {
-  background-color: #242424;
-  color: #fff;
-  transform: translateX(110%);
+  transform: translate(-50%, -50%) scale(1);
+  box-shadow: 0 20px 80px 0 rgba(0, 0, 0, 0.55);
 }
 
 .modal__title {
@@ -418,18 +424,13 @@ nav {
   font-size: 14px;
 }
 
-.modal__para {
-  margin-bottom: 12px;
-  line-height: 1.75;
-}
-
 .form__item {
   margin-bottom: 20px;
 }
 
 .form__submit {
-  background-color: #146c94;
-  border: 2px solid #146c94;
+  background-color: #068454;
+  border: 2px solid #068454;
   color: #fff;
   font-size: 20px;
   font-weight: 700;
@@ -445,8 +446,8 @@ nav {
 }
 
 .form__submit:active {
-  border-color: #146c94;
-  color: #146c94;
+  border-color: #068454;
+  color: #068454;
 }
 
 .modal__overlay {
@@ -494,10 +495,10 @@ nav {
 
 .modal__exit {
   position: absolute;
-  top: 30px;
-  right: 40px;
+  top: 20px;
+  right: 24px;
   color: #fff;
-  font-size: 36px;
+  font-size: 28px;
   z-index: 100;
 }
 
@@ -539,6 +540,15 @@ nav {
   }
 }
 
+/* SECTIONS */
+.header-gradient,
+#experience,
+#projects {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding-bottom: clamp(48px, 8vh, 96px);
+}
+
 /* EXPERIENCE */
 #experience-grid {
   > div {
@@ -562,27 +572,15 @@ nav {
   }
 }
 
-/* PROJECTS */
-#project-grid {
-  display: flex;
-  flex-wrap: wrap;
-
-  > div {
-    display: flex;
-    flex-wrap: wrap;
-    width: 45%;
-    margin: 2.5% auto;
-    > img {
-      width: 100%;
-      border-radius: 10px;
-    }
-  }
+.year {
+  font-weight: 700;
+  color: #068454;
 }
 
 /* PROJECTS */
-/*
+
 #projects {
-  padding: 0 20px;
+  padding-inline: 20px;
 }
 
 .project__list {
@@ -675,6 +673,15 @@ nav {
   color: #fff;
 }
 
+.project__description--link {
+  text-align: left;
+  color: #fff;
+
+  &:hover {
+    color: #068454;
+  }
+}
+
 /* FOOTER */
 
 footer {
@@ -760,12 +767,40 @@ footer {
     filter: invert(1);
   }
   .link__hover-effect--black:after {
-    background-color: white;
+    background-color: #f7e86d;
+  }
+  input:focus,
+  textarea:focus {
+    border-color: #f7e86d;
+  }
+  .form__submit {
+      color: #242424;
+      background-color: #f7e86d;
+      border: 2px solid #f7e86d;
+
+      &:hover {
+        color: #fff;
+      }
+      &:active {
+        border-color: #f7e86d;
+        color: #f7e86d;
+      }
+  }
+  .back-to-top {
+    background-color: #f7e86d;
+    color: #000;
+  }
+  .year {
+    color: #f7e86d;
   }
   #experience-grid {
     > div {
       border-bottom: 1px solid rgba(255, 255, 255, 0.45);
     }
+  }
+  .project__description--link {
+  &:hover {
+    color: #f7e86d;
   }
 }
 
@@ -790,15 +825,6 @@ footer {
         }
       }
     }
-  }
-  .modal {
-    top: 25%;
-    left: 5%;
-    transform: none;
-    height: auto;
-  }
-  .mail_btn {
-    bottom: 50px;
   }
   .scroll {
     display: none;
@@ -832,12 +858,6 @@ footer {
   nav {
     height: auto;
     padding: 1% 0;
-  }
-  .modal {
-    top: 10%;
-  }
-  .modal__half {
-    padding: 32px;
   }
   .header {
     gap: 16px;
@@ -881,13 +901,6 @@ footer {
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
   }
-  .mail__btn {
-    width: 48px;
-    height: 48px;
-    font-size: 24px;
-    bottom: 56px;
-    right: 16px;
-  }
   .nav__link:first-child {
     display: none;
   }
@@ -913,8 +926,5 @@ footer {
   .project__description--sub-title {
     margin-bottom: 8px;
     font-weight: 500;
-  }
-  .modal__half {
-    padding: 40px;
   }
 }
