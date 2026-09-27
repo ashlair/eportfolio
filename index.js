@@ -134,7 +134,7 @@ const projects = [
         icon: "fab fa-github",
       },
       {
-        url: "https://ng-fitness-tracker-92603.web.app/",
+        url: "https://ashlair.github.io/recipe-book/",
         icon: "fas fa-link",
       },
     ],
@@ -265,6 +265,36 @@ if (backToTop && landingPage) {
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
+
+// mobile nav: hamburger menu shown at small widths
+const nav = document.querySelector("nav");
+const navToggle = document.querySelector(".nav__toggle");
+
+function toggleNav(open = !nav.classList.contains("nav--open")) {
+  nav.classList.toggle("nav--open", open);
+  navToggle.setAttribute("aria-expanded", open);
+  navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  navToggle.querySelector("i").className = open
+    ? "fas fa-times"
+    : "fas fa-bars";
+}
+
+document
+  .querySelectorAll(".nav__link--anchor")
+  .forEach((link) => link.addEventListener("click", () => toggleNav(false)));
+
+document.addEventListener("click", (event) => {
+  if (nav.classList.contains("nav--open") && !nav.contains(event.target)) {
+    toggleNav(false);
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && nav.classList.contains("nav--open")) {
+    toggleNav(false);
+    navToggle.focus();
+  }
+});
 
 function toggleModal() {
   if (isModalOpen) {

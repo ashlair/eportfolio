@@ -31,7 +31,17 @@
             <figure>
               <img id="personal-logo" src="./assets/ashleylairson.png" alt="" />
             </figure>
-            <ul class="nav__link--list">
+            <button
+              type="button"
+              class="nav__toggle click"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="nav-menu"
+              onclick="toggleNav()"
+            >
+              <i class="fas fa-bars"></i>
+            </button>
+            <ul id="nav-menu" class="nav__link--list">
               <li class="nav__link">
                 <a
                   href="#experience"
