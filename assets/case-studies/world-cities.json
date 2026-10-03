@@ -1,0 +1,99 @@
+{
+  "features": [
+    {
+      "title": "Browse cities &amp; countries",
+      "description": "Material data tables list every city and country, with links from each city to its country record."
+    },
+    {
+      "title": "Server-side paging &amp; sorting",
+      "description": "Only the requested page is queried and returned, so the table stays responsive with tens of thousands of rows."
+    },
+    {
+      "title": "Search as you type",
+      "description": "A debounced filter box queries the API by name prefix without firing a request on every keystroke."
+    },
+    {
+      "title": "Create &amp; edit records",
+      "description": "Reactive forms add or update cities and countries, with inline validation for required fields and coordinate formats."
+    },
+    {
+      "title": "Duplicate detection",
+      "description": "Async validators check with the API before saving, blocking a duplicate city or an already-used country name or ISO code."
+    },
+    {
+      "title": "Bulk data import",
+      "description": "A development-only seed endpoint loads countries and cities from an Excel source file into SQL Server."
+    }
+  ],
+  "hero": {
+    "title": "World Cities",
+    "subtitle": "ASP.NET Core Web API &amp; Angular",
+    "description": "A full-stack web application for browsing, searching, and managing a database of world cities and countries. A C# ASP.NET Core Web API backed by SQL Server serves paged, sorted, and filtered data to an Angular Material front end."
+  },
+  "layers": [
+    {
+      "title": "Data layer",
+      "items": [
+        "Modelled <code>City</code> and <code>Country</code> entities with a one-to-many relationship, keys, and indexes on the columns used for lookups and sorting.",
+        "Configured the <code>DbContext</code> and generated the schema with EF Core code-first migrations against SQL Server.",
+        "Wrote a seed controller that reads the source spreadsheet with EPPlus and imports countries before cities, skipping records that already exist."
+      ]
+    },
+    {
+      "title": "API",
+      "items": [
+        "Built RESTful CRUD controllers for cities and countries using async EF Core queries.",
+        "Created a generic <code>ApiResult&lt;T&gt;</code> that applies filtering, sorting, and paging to any <code>IQueryable</code> and returns the page with its paging metadata.",
+        "Validated sort and filter column names against the model's properties before building dynamic queries, to guard against injection.",
+        "Returned DTOs for list views so the client gets only the fields it needs, including the related country name.",
+        "Added structured request logging with Serilog (console and SQL Server) and Swagger docs for the API in development."
+      ]
+    },
+    {
+      "title": "Front end",
+      "items": [
+        "Built list and edit views for cities and countries with Angular Material tables, paginators, sort headers, and form fields.",
+        "Defined a generic abstract data service and a shared base form component to cut repeated HTTP and validation code across features.",
+        "Used RxJS to debounce filter input and to clean up subscriptions when components are destroyed.",
+        "Implemented custom async validators that call the API to check for duplicates before a form can be submitted."
+      ]
+    }
+  ],
+  "links": [
+    {
+      "href": "https://github.com/ashlair/portfolio-projects/tree/main/csharp/WorldCities"
+    }
+  ],
+  "images": [
+    {
+      "src": "../assets/worldcities.png",
+      "alt": "World Cities home page with Angular Material toolbar linking to Cities and Countries, above a photo of a globe",
+      "caption": "Home page"
+    },
+    {
+      "src": "../assets/cities.png",
+      "alt": "World Cities home page with Angular Material toolbar linking to Cities and Countries, above a photo of a globe",
+      "caption": "Cities"
+    },
+    {
+      "src": "../assets/countries.png",
+      "alt": "World Cities home page with Angular Material toolbar linking to Cities and Countries, above a photo of a globe",
+      "caption": "Countries"
+    }
+  ],
+  "overview": "World Cities is split into two projects in one Visual Studio solution: <strong>WorldCitiesAPI</strong>, an ASP.NET Core 6 Web API that owns the data and business rules, and <strong>WorldCities</strong>, an Angular 13 single-page application that consumes it. The database is seeded from a spreadsheet of real-world city data, then exposed through REST endpoints that support server-side paging, sorting, and filtering so the UI stays fast even with large tables.",
+  "backEndTech": [
+    "C#",
+    "ASP.NET Core 6",
+    "Serilog",
+    "SQL Server",
+    "Swagger / OpenAPI"
+  ],
+  "frontEndTech": [
+    "Angular 13",
+    "Typescript",
+    "Angular Material",
+    "RxJS",
+    "SCSS"
+  ]
+}

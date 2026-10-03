@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Cities | Ashley Lairson</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="./project.css" />
+    <script
+      src="https://kit.fontawesome.com/2bf2d89947.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="project-page">
+    <main>
+      <nav>
+        <a href="../index.html">
+          <figure>
+            <img
+              id="personal-logo"
+              src="../assets/ashleylairson.png"
+              alt="Ashley Lairson home"
+            />
+          </figure>
+        </a>
+        <button id="theme" class="theme" onclick="changeTheme()">
+          <span class="moon-icon"><i class="fa-solid fa-moon"></i></span>
+          <span class="sun-icon"><i class="fa-regular fa-sun"></i></span>
+        </button>
+        <a
+          href="../index.html#projects"
+          class="nav__link--anchor link__hover-effect link__hover-effect--black"
+          >&larr; All Projects</a
+        >
+      </nav>
+
+      <div class="two-column-layout">
+          <header class="hero">
+            <span class="hero__eyebrow">Project Overview</span>
+            <div class="hero__titles">
+              <h1 class="hero__title">World Cities</h1>
+              <h2 class="hero__subtitle">ASP.NET Core Web API &amp; Angular</h2>
+            </div>
+            <p class="hero__para">
+              A full-stack web application for browsing, searching, and managing a
+              database of world cities and countries. A C# ASP.NET Core Web API
+              backed by SQL Server serves paged, sorted, and filtered data to an
+              Angular Material front end.
+            </p>
+            <div class="actions">
+              <button class="secondary" href="https://github.com/ashlair/portfolio-projects/tree/main/csharp/WorldCities" target="${link.target || "_blank"}"> View Source Code </button>
+              <button class="primary" href="#implementation">
+                What I Built <i class="fab fa-arrow-up-right"></i>
+              </button>
+            </div>
+          </header>
+          <section class="project-section" id="screenshots">
+            <!-- <h2>Screenshots</h2> -->
+            <div id="slideshow" class="slideshow-container">
+              <div id="slides"></div>
+              <button class="prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+              <button class="next-btn" onclick="changeSlide(1)">&#10095;</button>
+            </div>
+          </section>
+      </div>
+
+      <section class="project-section" id="overview">
+        <h2>Overview</h2>
+        <p class="section__lead">
+          World Cities is split into two projects in one Visual Studio solution:
+          <strong>WorldCitiesAPI</strong>, an ASP.NET Core 6 Web API that owns
+          the data and business rules, and <strong>WorldCities</strong>, an
+          Angular 13 single-page application that consumes it. The database is
+          seeded from a spreadsheet of real-world city data, then exposed
+          through REST endpoints that support server-side paging, sorting, and
+          filtering so the UI stays fast even with large tables.
+        </p>
+        <span class="section__footnote">
+          I built it by following <cite>ASP.NET Core 6 and Angular</cite>
+          (Valerio De Sanctis, Packt) to practice the full request path end to
+          end: relational modelling with Entity Framework Core, a clean API
+          contract, and a reactive Angular front end with validated forms.
+        </span>
+      </section>
+
+      <section class="project-section" id="technologies">
+        <h2>Technologies</h2>
+        <div class="tech__group">
+            <p class="tech__label">Back end</p>
+            <ul id="backend" class="tech__list"></ul>
+        </div>
+        <div class="tech__group">
+          <p class="tech__label">Front end</p>
+          <ul id="frontend" class="tech__list"></ul>
+        </div>
+      </section>
+
+
+
+      <section class="project-section" id="features">
+        <h2>Key Features</h2>
+        <div id="cards" class="cards">
+          <div id="card" class="card"></div>
+        </div>
+      </section>
+
+      <section class="project-section" id="implementation">
+        <h2>What I Built</h2>
+        <div id="layers"></div>
+      </section>
+
+      <section class="project-section cta">
+        <h2>Explore the Code</h2>
+        <p class="section__lead">
+          The full solution, including the API, the EF Core data model, and the
+          Angular client, is on GitHub.
+        </p>
+        <div class="actions">
+          <button
+            class="primary"
+            href="https://github.com/ashlair/portfolio-projects/tree/main/csharp/WorldCities"
+            target="_blank"
+          >
+            <i class="fab fa-github"></i>
+            View Source Code
+          </button>
+          <button class="secondary" href="../index.html#projects"
+            >Back to Portfolio
+          </button>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="row footer__row">
+        <a href="../index.html" class="footer__anchor">
+          <figure class="footer__logo">
+            <img
+              src="../assets/ashleylairson.png"
+              class="footer__logo--img"
+              alt=""
+            />
+          </figure>
+        </a>
+        <div class="footer__social--list">
+          <a
+            href="https://github.com/ashlair"
+            class="footer__social--link link__hover-effect link__hover-effect--black"
+            target="_blank"
+            >GitHub</a
+          >
+          <a
+            href="https://www.linkedin.com/in/ashley-lairson-8b297965/"
+            class="footer__social--link link__hover-effect link__hover-effect--black"
+            target="_blank"
+            >LinkedIn</a
+          >
+          <a
+            href="mailto:ashleylairson@gmail.com"
+            class="footer__social--link link__hover-effect link__hover-effect--black"
+            target="_blank"
+            >Email</a
+          >
+          <a
+            href="../assets/resume.pdf"
+            class="footer__social--link link__hover-effect link__hover-effect--black"
+            target="_blank"
+            >Resume</a
+          >
+        </div>
+        <div class="footer__copyright">Copyright © 2026 Ashley Lairson</div>
+      </div>
+    </footer>
+    <button
+      id="back-to-top"
+      class="back-to-top"
+      aria-label="Back to top"
+      onclick="scrollToTop()"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </button>
+    <script src="./../shared.js"></script>
+    <script src="./project.js"></script>
+  </body>
+</html>
+
