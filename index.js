@@ -1,5 +1,4 @@
 let isModalOpen = false;
-const darkTheme = window.matchMedia("(prefers-color-scheme: dark)");
 
 // data arrays (dataArray)
 const techStack = [
@@ -140,6 +139,26 @@ const projects = [
     ],
   },
   {
+    title: "World Cities",
+    description:
+      "This practice project was created as a means to use as a cities and countries database with a user friendly interface. Uses C#, ASP.NET Core, and SQL server for database needs and Angular Material for basic design needs.",
+    img: {
+      src: "./assets/worldcities.png",
+      alt: "World Cities",
+    },
+    weblinks: [
+      {
+        url: "https://github.com/ashlair/portfolio-projects/tree/main/csharp/WorldCities",
+        icon: "fab fa-github",
+      },
+      {
+        url: "./projects/world-cities.html",
+        icon: "fas fa-link",
+        target: "_self",
+      },
+    ],
+  },
+  {
     title: "WET",
     description:
       "This freelance website was created as a tool for clients to book appointments for IV treatments and learn more information about the company. Wordpress was the platform with additional scripting to enhance the site. Designed for desktop, but made responsive to mobile.",
@@ -174,7 +193,7 @@ const createExperienceHTML = (exp) => `
   </div>
 `;
 const createProjectLinkHTML = (link) => `
-  <a class="project__description--link" href="${link.url}" target="_blank" rel="noopener noreferrer">
+  <a class="project__description--link" href="${link.url}" target="${link.target || "_blank"}">
     <i class="${link.icon}"></i>
   </a>
 `;
@@ -193,15 +212,11 @@ const createProjectHTML = (proj) => `
   </div>
 `;
 
-// render grid
-function renderGrid(containerId, dataArray, templateFunction) {
-  const container = document.getElementById(containerId);
-  if (!container) return;
+// run renderGrid(html id, data array, template)
+renderGrid("tech-grid", techStack, createTechStackHTML);
+renderGrid("experience-grid", experience, createExperienceHTML);
+renderGrid("project-grid", projects, createProjectHTML);
 
-  container.innerHTML = dataArray
-    .map((item) => templateFunction(item))
-    .join("");
-}
 
 // calendar years of experience
 function getTimeSince(startDate) {
@@ -213,19 +228,6 @@ const yearsExperience = document.getElementById("years-experience");
 if (yearsExperience) {
   yearsExperience.textContent = getTimeSince(new Date(2018, 9, 1));
 }
-
-// run renderGrid(html id, data array, template)
-renderGrid("tech-grid", techStack, createTechStackHTML);
-renderGrid("experience-grid", experience, createExperienceHTML);
-renderGrid("project-grid", projects, createProjectHTML);
-
-darkTheme.addListener((e) => {
-  if (e.matches) {
-    // Theme set to dark.
-  } else {
-    // Theme set to dark.
-  }
-});
 
 function contact(event) {
   event.preventDefault();
@@ -252,9 +254,9 @@ function contact(event) {
     });
 }
 
-// back to top: show the button once the landing page is scrolled past
+// back to top: show the button once the landing page (or project hero) is scrolled past
 const backToTop = document.getElementById("back-to-top");
-const landingPage = document.getElementById("landing-page");
+const landingPage = document.querySelector("#landing-page, .hero");
 
 if (backToTop && landingPage) {
   new IntersectionObserver(([entry]) => {
