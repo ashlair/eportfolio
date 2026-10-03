@@ -35,33 +35,39 @@
       </nav>
 
       <div class="two-column-layout">
-          <header class="hero">
-            <span class="hero__eyebrow">Project Overview</span>
-            <div class="hero__titles">
-              <h1 class="hero__title">World Cities</h1>
-              <h2 class="hero__subtitle">ASP.NET Core Web API &amp; Angular</h2>
-            </div>
-            <p class="hero__para">
-              A full-stack web application for browsing, searching, and managing a
-              database of world cities and countries. A C# ASP.NET Core Web API
-              backed by SQL Server serves paged, sorted, and filtered data to an
-              Angular Material front end.
-            </p>
-            <div class="actions">
-              <button class="secondary" href="https://github.com/ashlair/portfolio-projects/tree/main/csharp/WorldCities" target="${link.target || "_blank"}"> View Source Code </button>
-              <button class="primary" href="#implementation">
-                What I Built <i class="fab fa-arrow-up-right"></i>
-              </button>
-            </div>
-          </header>
-          <section class="project-section" id="screenshots">
-            <!-- <h2>Screenshots</h2> -->
-            <div id="slideshow" class="slideshow-container">
-              <div id="slides"></div>
-              <button class="prev-btn" onclick="changeSlide(-1)">&#10094;</button>
-              <button class="next-btn" onclick="changeSlide(1)">&#10095;</button>
-            </div>
-          </section>
+        <header class="hero">
+          <span class="hero__eyebrow">Project Overview</span>
+          <div class="hero__titles">
+            <h1 class="hero__title">World Cities</h1>
+            <h2 class="hero__subtitle">ASP.NET Core Web API &amp; Angular</h2>
+          </div>
+          <p class="hero__para">
+            A full-stack web application for browsing, searching, and managing a
+            database of world cities and countries. A C# ASP.NET Core Web API
+            backed by SQL Server serves paged, sorted, and filtered data to an
+            Angular Material front end.
+          </p>
+          <div class="actions">
+            <a
+              class="button secondary"
+              href="https://github.com/ashlair/portfolio-projects/tree/main/csharp/WorldCities"
+              target="_blank"
+            >
+              View Source Code
+            </a>
+            <a class="button primary" href="#implementation">
+              What I Built <i class="fab fa-arrow-up-right"></i>
+            </a>
+          </div>
+        </header>
+        <section class="project-section" id="screenshots">
+          <!-- <h2>Screenshots</h2> -->
+          <div id="slideshow" class="slideshow-container">
+            <div id="slides"></div>
+            <button class="prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="next-btn" onclick="changeSlide(1)">&#10095;</button>
+          </div>
+        </section>
       </div>
 
       <section class="project-section" id="overview">
@@ -86,16 +92,14 @@
       <section class="project-section" id="technologies">
         <h2>Technologies</h2>
         <div class="tech__group">
-            <p class="tech__label">Back end</p>
-            <ul id="backend" class="tech__list"></ul>
+          <p class="tech__label">Back end</p>
+          <ul id="backend" class="tech__list"></ul>
         </div>
         <div class="tech__group">
           <p class="tech__label">Front end</p>
           <ul id="frontend" class="tech__list"></ul>
         </div>
       </section>
-
-
 
       <section class="project-section" id="features">
         <h2>Key Features</h2>
@@ -116,17 +120,17 @@
           Angular client, is on GitHub.
         </p>
         <div class="actions">
-          <button
-            class="primary"
+          <a
+            class="button primary"
             href="https://github.com/ashlair/portfolio-projects/tree/main/csharp/WorldCities"
             target="_blank"
           >
             <i class="fab fa-github"></i>
             View Source Code
-          </button>
-          <button class="secondary" href="../index.html#projects"
-            >Back to Portfolio
-          </button>
+          </a>
+          <a class="button secondary" href="../index.html#projects">
+            Back to Portfolio
+          </a>
         </div>
       </section>
     </main>
@@ -182,4 +186,3 @@
     <script src="./project.js"></script>
   </body>
 </html>
-

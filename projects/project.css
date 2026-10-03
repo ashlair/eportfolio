@@ -43,6 +43,10 @@
   margin-top: 8px;
 }
 
+figcaption {
+  text-align: right;
+}
+
 .project-section {
   padding: 32px 0;
   display: flex;
