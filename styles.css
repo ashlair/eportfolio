@@ -552,26 +552,12 @@ nav {
 }
 
 .form__submit {
-  background-color: var(--color-accent);
-  border: 2px solid var(--color-accent);
-  color: var(--color-on-accent);
   font-size: 20px;
   font-weight: 700;
   width: 100%;
   max-width: 240px;
   padding: 8px 20px;
   transition: all 300ms ease;
-}
-
-.form__submit:hover {
-  border-color: var(--color-white);
-  background-color: transparent;
-  color: var(--color-white);
-}
-
-.form__submit:active {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
 }
 
 .modal__overlay {
